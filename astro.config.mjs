@@ -1,10 +1,13 @@
-import { defineConfig } from "astro/config";
+import { defineConfig, passthroughImageService } from "astro/config";
 import starlight from "@astrojs/starlight";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://notes.rahuldeshar.com.np",
   base: "/",
+  image: {
+    service: passthroughImageService(),
+  },
   integrations: [
     starlight({
       title: "My Docs",
