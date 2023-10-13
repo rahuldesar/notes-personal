@@ -24,7 +24,7 @@ This is definitely not desirable. When doing software development work, we alway
 
 Tmux perfectly addressed the above issues by introducing the following design:
 
-![Tmux Design](../../../tmux/assets/images/remote_linux_development_overall.jpg)
+![Tmux Design](../../../assets/images/tmux/remote_linux_development_overall.jpg)
 
 In this design, instead of running in the ssh session, the programs on the server side (e.g., editors, shells) runs within the tmux session. When the session is reset or lost, none of the programs will be affected. Also, multiple programs can run within the same tmux session.
 
