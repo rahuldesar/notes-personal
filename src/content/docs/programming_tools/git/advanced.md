@@ -1,0 +1,13 @@
+---
+title: "Git advanced codes"
+description: Welcome to notes and cheatsheets to elevate your developer journey
+sidebar:
+  order: 3
+---
+
+git bisect
+git cherry-pick
+git submodule
+git reflog
+git blame
+git revert

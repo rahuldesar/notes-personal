@@ -1,0 +1,110 @@
+---
+title: Example Guide
+description: A guide in my new Starlight docs site.
+---
+
+Guides lead a user through a specific task they want to accomplish, often with a sequence of steps.
+Writing a good guide requires thinking about what your users are trying to do.
+
+## Further reading
+
+- Read [about how-to guides](https://diataxis.fr/how-to-guides/) in the Diátaxis framework
+
+:::note
+Starlight is a documentation website toolkit built with [Astro](https://astro.build/). You can get started with this command:
+
+:::
+
+:::tip
+Starlight is a documentation website toolkit built with [Astro](https://astro.build/). You can get started with this command:
+```
+Some cool code
+```
+:::
+
+
+:::caution
+Starlight is a documentation website toolkit built with [Astro](https://astro.build/). You can get started with this command:
+:::
+
+
+:::danger
+Starlight is a documentation website toolkit built with [Astro](https://astro.build/). You can get started with this command:
+:::
+
+> This is a blockquote, which is commonly used when quoting another person or document.
+>
+> Blockquotes are indicated by a `>` at the start of each line.
+
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+<Tabs>
+	<TabItem label="Stars">Sirius, Vega, Betelgeuse</TabItem>
+	<TabItem label="Moons">Io, Europa, Ganymede</TabItem>
+</Tabs>
+
+
+import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+<Card title="Check this out">Interesting content you want to highlight.</Card>
+
+<CardGrid>
+	<Card title="Card 1" icon="star">
+		Sirius, Vega, Betelgeuse
+	</Card>
+	<Card title="Card 2" icon="moon">
+		Io, Europa, Ganymede
+	</Card>
+</CardGrid>
+import { Icon } from '@astrojs/starlight/components';
+
+<Icon name="star" color="goldenrod" size="2rem" />
+
+
+
+<LinkCard
+	title="Customizing Starlight"
+	description="More Icons here"
+	href="https://starlight.astro.build/guides/components/#icon"
+/>
+
+<CardGrid>
+	<LinkCard title="Link Card 1" href="/guides/authoring-content/" />
+	<LinkCard title="Link Card 2" href="/guides/components/" />
+</CardGrid>
+
+# Heading 1
+
+## Heading 2
+
+### Heading 3
+
+#### Heading 4
+
+##### Heading 5
+
+this is a dummy p tag
+
+[WireframeTools](www.google.com)
+
+```javascript
+let a = 1000;
+console.log(a);
+console.log(a);
+console.log(a);
+console.log(a);
+```
+
+> A block quote with a
+>
+> ##### header 4
+>
+> and a table
+> test
+
+_Emphasis_
+**Strong**
+
+`Code`span
+:a

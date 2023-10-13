@@ -1,28 +1,32 @@
 ---
-title: "Notes | Rahul Deshar"
+title: "Welcome to cheatsheet"
 description: Welcome to notes and cheatsheets to elevate your developer journey
 template: splash
+head:
+  # Use a custom <title> tag
+  - tag: title
+    content: "Notes | Rahul Deshar"
 hero:
-  tagline: Congrats on setting up a new Starlight project!
+  tagline: Cheatsheets for useful tools.
   image:
     file: ../../assets/houston.webp
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: Start Here
+      link: /cheatsheet
       icon: right-arrow
       variant: primary
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
+    - text: Check my portfolio site
+      link: https://www.rahuldeshar.com.np
       icon: external
 ---
 
-import { Card, CardGrid } from "@astrojs/starlight/components";
+import { Card, CardGrid, LinkCard } from "@astrojs/starlight/components";
 
-## Next steps
+## Quick Links
 
 <CardGrid stagger>
-  <Card title="Update content" icon="pencil">
-    Edit `src/content/docs/index.mdx` to see this page change.
+  <Card title="Git" icon="pencil">
+    Edit `src/content/docs/programming_tools/git` to see this page change.
   </Card>
   <Card title="Add new content" icon="add-document">
     Add Markdown or MDX files to `src/content/docs` to create new pages.

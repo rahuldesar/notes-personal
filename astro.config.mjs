@@ -13,8 +13,8 @@ export default defineConfig({
   integrations: [starlight({
     title: "Cheatsheet",
     customCss: [
-    // Path to your Tailwind base styles:
-    "./src/tailwind.css"],
+      // Path to your Tailwind base styles:
+      "./src/tailwind.css"],
     favicon: "./public/favicon.png",
     // logo: {
     //   src: "./src/assets/favicon.png",
@@ -25,18 +25,41 @@ export default defineConfig({
       github: "https://github.com/rahuldesar"
     },
     sidebar: [{
-      label: "Guides",
-      collapsed: true,
-      items: [{
-        label: "Example Guide",
-        link: "/guides/example/"
-      }]
+      label: "Intro",
+      link: "/cheatsheet"
+    },{
+      label: "Programming Tools",
+      // collapsed: true,
+      autogenerate: {
+        directory: "programming_tools"
+      }
     }, {
-      label: "Reference",
+      label: "Linux",
       collapsed: true,
       autogenerate: {
         directory: "reference"
       }
-    }]
+    }, {
+      label: "Helper",
+      link: "/guides/example/"
+    }, {
+      label: "Cheatsheet",
+      collapsed: true,
+      autogenerate: {
+        directory: "reference"
+      }
+    }, {
+      label: "Cheatsheet",
+      collapsed: true,
+      autogenerate: {
+        directory: "reference"
+      }
+    }, {
+      label: "Cheatsheet",
+      collapsed: true,
+      autogenerate: {
+        directory: "reference"
+      }
+    },]
   }), tailwind(), react()]
 });
