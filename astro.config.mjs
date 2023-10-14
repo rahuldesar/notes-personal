@@ -8,59 +8,71 @@ import react from "@astrojs/react";
 export default defineConfig({
   site: "https://notes.rahuldeshar.com.np",
   image: {
-    service: passthroughImageService()
+    service: passthroughImageService(),
   },
-  integrations: [starlight({
-    title: "Cheatsheet",
-    customCss: [
-      // Path to your Tailwind base styles:
-      "./src/tailwind.css"],
-    favicon: "./favicon.png",
-    // logo: {
-    //   src: "./src/assets/favicon.png",
-    //   // replacesTitle: true,
-    // },
+  integrations: [
+    starlight({
+      title: "Cheatsheet",
+      customCss: [
+        // Path to your Tailwind base styles:
+        "./src/tailwind.css",
+      ],
+      favicon: "./favicon.png",
+      // logo: {
+      //   src: "./src/assets/favicon.png",
+      //   // replacesTitle: true,
+      // },
 
-    social: {
-      github: "https://github.com/rahuldesar"
-    },
-    sidebar: [{
-      label: "Intro",
-      link: "/cheatsheet"
-    }, {
-      label: "Linux",
-      // collapsed: true,
-      autogenerate: {
-        directory: "linux"
-      }
-    },
-    {
-      label: "Programming Tools",
-      // collapsed: true,
-      autogenerate: {
-        directory: "programming_tools"
-      }
-    }, {
-      label: "Cheatsheet",
-      // collapsed: true,
-      autogenerate: {
-        directory: "reference"
-      }
-    }, {
-      label: "Cheatsheet",
-      collapsed: true,
-      autogenerate: {
-        directory: "reference"
-      }
-    }, {
-      label: "Cheatsheet",
-      collapsed: true,
-      autogenerate: {
-        directory: "reference"
-      }
-    }, {
-      label: "Helper",
-      link: "/guides/example/"
-    },]
-  }), tailwind(), react()]
+      social: {
+        github: "https://github.com/rahuldesar",
+      },
+      sidebar: [
+        {
+          label: "Intro",
+          link: "/cheatsheet",
+        },
+        {
+          label: "Linux",
+          // collapsed: true,
+          autogenerate: {
+            directory: "linux",
+          },
+        },
+        {
+          label: "Programming Tools",
+          // collapsed: true,
+          autogenerate: {
+            directory: "programming_tools",
+          },
+        },
+        {
+          label: "Cheatsheet",
+          // collapsed: true,
+          autogenerate: {
+            directory: "reference",
+          },
+        },
+        {
+          label: "Cheatsheet",
+          collapsed: true,
+          autogenerate: {
+            directory: "reference",
+          },
+        },
+        {
+          label: "Cheatsheet",
+          collapsed: true,
+          autogenerate: {
+            directory: "reference",
+          },
+        },
+        {
+          label: "Helper",
+          link: "/guides/example/",
+        },
+      ],
+    }),
+    tailwind(),
+    react(),
+  ],
 });
