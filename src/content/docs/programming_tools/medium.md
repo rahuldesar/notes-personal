@@ -2,7 +2,7 @@
 title: "Git | medium commands"
 description: Welcome to notes and cheatsheets to elevate your developer journey
 sidebar:
-  order: 2
+  order: 4
 ---
 
 git diff

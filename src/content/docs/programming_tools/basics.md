@@ -2,7 +2,7 @@
 title: "Git basics"
 description: Welcome to notes and cheatsheets to elevate your developer journey
 sidebar:
-  order: 1
+  order: 3
 ---
 
 ## GIT BASICS

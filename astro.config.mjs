@@ -27,14 +27,33 @@ export default defineConfig({
     sidebar: [{
       label: "Intro",
       link: "/cheatsheet"
-    },{
+    }, {
+      label: "Linux",
+      // collapsed: true,
+      autogenerate: {
+        directory: "linux"
+      }
+    },
+    {
       label: "Programming Tools",
       // collapsed: true,
       autogenerate: {
         directory: "programming_tools"
       }
     }, {
-      label: "Linux",
+      label: "Cheatsheet",
+      // collapsed: true,
+      autogenerate: {
+        directory: "reference"
+      }
+    }, {
+      label: "Cheatsheet",
+      collapsed: true,
+      autogenerate: {
+        directory: "reference"
+      }
+    }, {
+      label: "Cheatsheet",
       collapsed: true,
       autogenerate: {
         directory: "reference"
@@ -42,24 +61,6 @@ export default defineConfig({
     }, {
       label: "Helper",
       link: "/guides/example/"
-    }, {
-      label: "Cheatsheet",
-      collapsed: true,
-      autogenerate: {
-        directory: "reference"
-      }
-    }, {
-      label: "Cheatsheet",
-      collapsed: true,
-      autogenerate: {
-        directory: "reference"
-      }
-    }, {
-      label: "Cheatsheet",
-      collapsed: true,
-      autogenerate: {
-        directory: "reference"
-      }
     },]
   }), tailwind(), react()]
 });
