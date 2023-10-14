@@ -15,7 +15,7 @@ export default defineConfig({
     customCss: [
       // Path to your Tailwind base styles:
       "./src/tailwind.css"],
-    favicon: "./public/favicon.png",
+    favicon: "./favicon.png",
     // logo: {
     //   src: "./src/assets/favicon.png",
     //   // replacesTitle: true,
