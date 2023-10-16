@@ -1,0 +1,125 @@
+---
+title: Basis of Selection 1
+description: Selection 1 
+sidebar:
+  order: 2
+---
+
+## Basis SQL Query Syntax
+`SELECT` operator: get data samples from DBMS.
+
+Output of all data from the table: 
+```
+SELECT * FROM <TABLE_NAME>
+```
+
+Output of data from certain columns of the table
+
+```
+SELECT COLUMN_1, COLUMN_2, ... FROM <TABLE_NAME>
+```
+
+**Aliases**: In case we want to output some columns of the table.
+```
+SELECT COLUMN_1, COLUMN_2 AS alias FROM <TABLE_NAME>
+```
+OUTPUT: 
+
+| COLUMN_1 | alias |
+|----------|-------|
+| data_1   | data_2 |
+
+### Literals
+A literal is an explicitly specified fixed value, such as the number 12 or the string `"SQL"'.
+
+The main types of literals in MySQL are:
+
+- string
+- numeric
+- logical
+- NULL
+- date and time literal
+
+#### String Literals
+A string is a sequence of characters enclosed in single (') or double (") quotation marks. For example, this is a string" and `"this is a string"`.
+
+Strings can contain special sequences of characters starting with `"\"`.
+
+```sql
+SELECT "Line \n Another line" as String
+```
+
+#### Numeric Literals
+Numeric literals can have 
+
+- Integers and floating point : `1`, `2.8`, `0.01`
+- Only integer part, fractional part or both: `.2`, `1.2`, `20`
+- Positive or negative numbers: `+1`, `-10`, `-2.2`
+- Exponential notation: `1e3`, `1e-3`
+
+#### Arithemetic Operators
+For numeric literals, SQL has all arithimetic Operators
+
+- %, MOD
+= * 
+- + 
+- * 
+- /
+- DIV
+
+USAGE
+
+```sql
+SELECT (5 * 2 - 6) / 2 AS Result;
+
+```
+
+#### Date and Time literals.
+- Date and time values can be represented as string or numbers.
+
+```sql
+SELECT * FROM <TABLE_NAME> WHERE birthday > '1970-12-30'
+```
+where `1970-12-30` is a string.
+
+#### Logical Literals
+A logical literal is a value of `TRUE` or `FALSE`
+
+#### NULL
+The value `NULL` means "no data" or "no value."
+
+
+### Function usage
+When creating SQL queries, we can use built-in functions. For example, if we want to output a string in uppercase, we can use the `UPPER` function.
+
+```sql
+SELECT UPPER("Hello world")
+```
+
+[**functions reference page**](https://sql-academy.org/handbook/SUBSTRING)
+
+#### Applying functions over table field values
+Functions can be used not only on literals, but also on values taken from a table.
+
+```sql
+SELECT member_name,
+	LENGTH(member_name) AS fullname_length
+FROM FamilyMembers;
+```
+
+#### Operations on the result of the function
+Since we know that each function must return any of the possible literals, its result can also be used in further calculations and transformations.
+
+```sql
+SELECT UPPER(LEFT('sql-academy', 3)) AS str;
+```
+
+
+### Duplication elimination, DISTINCT
+## Conditional WHERE operator
+### Operators IS NULL, BETWEEN, IN
+### Operators LIKE 
+## Sorting, ORDER BY operator
+## Grouping, GROUP BY operator
+### Aggregate functions
+### Operator HAVING

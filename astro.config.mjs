@@ -39,6 +39,13 @@ export default defineConfig({
           },
         },
         {
+          label: "Database",
+          // collapsed: true,
+          autogenerate: {
+            directory: "database",
+          },
+        },
+        {
           label: "Programming Tools",
           // collapsed: true,
           autogenerate: {
