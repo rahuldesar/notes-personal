@@ -1,6 +1,7 @@
 import { defineConfig, passthroughImageService } from "astro/config";
 import starlight from "@astrojs/starlight";
 import tailwind from "@astrojs/tailwind";
+import partytown from "@astrojs/partytown";
 
 import react from "@astrojs/react";
 
@@ -19,6 +20,30 @@ export default defineConfig({
         "./src/tailwind.css",
       ],
       favicon: "./favicon.png",
+      head: [
+        // Example: add Fathom analytics script tag.
+        {
+          tag: "script",
+          attrs: {
+            type: "text/partytown",
+            src: "https://www.googletagmanager.com/gtag/js?id=G-ZLTT061SS3",
+            async: true,
+          },
+        },
+        {
+          tag: "script",
+          attrs:{
+            type: "text/partytown",
+          },
+          content: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-ZLTT061SS3');`,
+        },
+      ],
+
       // logo: {
       //   src: "./src/assets/favicon.png",
       //   // replacesTitle: true,
@@ -69,5 +94,10 @@ export default defineConfig({
     }),
     tailwind(),
     react(),
+    partytown({
+      config: {
+        forward: ["dataLayer.push"],
+      },
+    }),
   ],
 });

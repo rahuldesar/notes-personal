@@ -11,6 +11,7 @@
     "pretty": "prettier --write \"./**/*.{js,jsx,mjs,cjs,ts,tsx,json}\""
   },
   "dependencies": {
+    "@astrojs/partytown": "^2.0.1",
     "@astrojs/react": "^3.0.3",
     "@astrojs/starlight": "latest",
     "@astrojs/starlight-tailwind": "^2.0.0",
