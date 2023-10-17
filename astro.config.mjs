@@ -13,6 +13,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "Cheatsheet",
+      tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 4 },
       customCss: [
         // Path to your Tailwind base styles:
         "./src/tailwind.css",
@@ -54,20 +55,6 @@ export default defineConfig({
         },
         {
           label: "Cheatsheet",
-          // collapsed: true,
-          autogenerate: {
-            directory: "reference",
-          },
-        },
-        {
-          label: "Cheatsheet",
-          collapsed: true,
-          autogenerate: {
-            directory: "reference",
-          },
-        },
-        {
-          label: "Cheatsheet",
           collapsed: true,
           autogenerate: {
             directory: "reference",
@@ -76,6 +63,7 @@ export default defineConfig({
         {
           label: "Helper",
           link: "/guides/example/",
+          badge: "tip",
         },
       ],
     }),

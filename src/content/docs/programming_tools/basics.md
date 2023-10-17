@@ -11,13 +11,13 @@ sidebar:
 
 To list all available commands or additional help. Check:
 
-```
+```bash
  man git || git --help || git help -a || git help -g || git help <concept|command>
 ```
 
 To checkout details about each command use:
 
-```
+```bash
 man git-<command> || git help <command>
 // man git-commit || git help commit
 ```
@@ -30,7 +30,7 @@ This is tailored to my own progress, and you might find this helpful.
 
 - Initializes a new Git repository.
 
-```
+```bash
 --template=<template_directory>
 ```
 
@@ -38,7 +38,7 @@ This is tailored to my own progress, and you might find this helpful.
 
 - Clones an existing Git repository.
 
-```
+```bash
 -l | --local            ==> repo is on local machine
 -b | --branch <name>    ==> points cloned repo's head to <name> branch
 
@@ -52,7 +52,7 @@ This is tailored to my own progress, and you might find this helpful.
 
 - Adds changes to the staging area.
 
-```
+```bash
 .                     ==> Add all changes to staging area
 -A | --all            ==> Add all changes to staging area
 -p | --patch          ==> selectively add changes within a file to staging area
@@ -69,7 +69,7 @@ This is tailored to my own progress, and you might find this helpful.
 
 - Commits changes to the local repository.
 
-```
+```bash
 -m <msg> | --message=<msg>
 -a | --all                ==> Automatically stages and commits any changes to tracked files.
 --branch                  ==> Show the branch and tracking info even is short-format.
@@ -88,7 +88,7 @@ This is tailored to my own progress, and you might find this helpful.
 
 - Shows a history of commits.
 
-```
+```bash
 git log --graph --decorate --oneline
 ```
 
@@ -96,7 +96,7 @@ git log --graph --decorate --oneline
 
 - Pushes changes from the local repository to a remote repository.
 
-```
+```bash
 git push                    ==> push to remote repo with current branch name.
 git push <remote> <branch>  ==> push change from local branch to specific branch on remote repo.
 
@@ -114,7 +114,7 @@ git push <remote> <branch>  ==> push change from local branch to specific branch
 
 Extra Flags
 
-```
+```bash
 --list | -l (default)  // ==> List all existing branches (green = current branch)
 -a | --all             // ==> All
 -r                     // ==> List all remote branches
@@ -125,7 +125,7 @@ Extra Flags
 
 - Switches to a different branch or commit.
 
-```
+```bash
 git checkout <branch>         ==> switch to the specified branch
 git checkout -b <new-branch>  ==> creates new branch and switches to it
 git checkout -- <file>        ==> discard changes made to a file since last commit and revert it to last committed version
@@ -139,7 +139,7 @@ git checkout -- .             ==> discard all changes made to the file in the wo
 
 - Fetches changes from a remote repository without merging them.
 
-```
+```bash
 git fetch origin branch-name    ==> fetches changes from a specific branch on the remote repo to your local repo
 --all                           ==> fetches changes from all remote repo to local repo
 --prune                         ==> fetches changes from the remote repo and removes any references to branches that have been removed in remote
@@ -150,7 +150,7 @@ git fetch origin branch-name    ==> fetches changes from a specific branch on th
 
 - Merges changes from one branch into another.
 
-```
+```bash
 git merge <branch>
 
 --abort                             ==> abort current conflict resolution process
@@ -173,7 +173,7 @@ git merge <branch>
 
 - Fetches and merges(or rebase) changes from a remote repository.
 
-```
+```bash
 git pull origin <branch_name>
 
 

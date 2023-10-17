@@ -8,7 +8,6 @@ tags: tools, tmux, config
 
 This article briefly introduces tmux, and provides a recommended startup config to make tmux easier to use.
 
-
 ## Why tmux?
 
 Linux is a pretty popular server solution. It is used by many tech giants to build its backend data centers, and also small businesses as their backend infra.
@@ -17,8 +16,8 @@ To interact with Linux, developers typically use terminal and ssh. They use them
 
 It all sounds pretty sweet until developers started to work on more complicated tasks, e.g., developing large scale softwares. There are two major problems:
 
-*   In each ssh session, you are only allowed to run one single foreground program at any time.
-*   If your ssh session is down, you lose the foreground program in that session.
+- In each ssh session, you are only allowed to run one single foreground program at any time.
+- If your ssh session is down, you lose the foreground program in that session.
 
 This is definitely not desirable. When doing software development work, we always need to have multiple tasks going on at the same time, e.g., editing code, version control, data base operations, running tests. However, in a ssh session, you are only allowed to run one single foreground program. What make it worse is that it could be lost anytime if you ssh session is reset.
 
@@ -28,15 +27,16 @@ Tmux perfectly addressed the above issues by introducing the following design:
 
 In this design, instead of running in the ssh session, the programs on the server side (e.g., editors, shells) runs within the tmux session. When the session is reset or lost, none of the programs will be affected. Also, multiple programs can run within the same tmux session.
 
-
 ## Installation
 
 Installing tmux is easy. On Linux, you can do:
+
 ```sh
 sudo apt update && sudo apt install tmux
 ```
 
 On mac, you can do:
+
 ```sh
 brew install tmux
 ```
@@ -70,8 +70,8 @@ brew install tmux
 | Ctrl-b )                 | Move to next session                      |
 
 ### Windows
-Windows are basically tabs in tmux session. They are listed on the bottom of the screen by default. They are extremely useful, because they provide an elegant way to manage all your programs.
 
+Windows are basically tabs in tmux session. They are listed on the bottom of the screen by default. They are extremely useful, because they provide an elegant way to manage all your programs.
 
 | COMMANDS                              | DESCRIPTION                                |
 | ------------------------------------- | ------------------------------------------ |
@@ -87,6 +87,7 @@ Windows are basically tabs in tmux session. They are listed on the bottom of the
 | Ctrl-b :swap-window -s [0-9] -t [0-9] | Swap windows                               |
 
 ### Panes
+
 Panes allow you to split a single window into multiple areas, where each area can run a separate program. This is helpful if you prefer to see multiple programs running in the same screen.
 
 By default, each window has one pane by default. You can split each pane vertically or horizontally.
@@ -137,8 +138,7 @@ By default, each window has one pane by default. You can split each pane vertica
 | Ctrl-r                           | Enter search mode to search backward in the scrollback buffer         |
 | H/J/K/L                          | Move the cursor left/down/up/right in copy mode (vim-like navigation) |
 
-Recommended Config[](#recommended-config)
------------------------------------------
+## Recommended Config[](#recommended-config)
 
 Here’s a recommended config for tmux to make it easier to use. [Source: Dreams of Code](https://www.youtube.com/watch?v=DzNmUNvnB04)
 
@@ -199,4 +199,3 @@ set -g @plugin 'tmux-plugins/tmux-yank'
 
 run '~/.tmux/plugins/tpm/tpm'
 ```
-

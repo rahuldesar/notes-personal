@@ -14,7 +14,7 @@ git tag
 - Manage set of tracked repositories
 - BETTER CHECK `git help remote`
 
-```
+```bash
 //Learn Later
 git remote
 git remote add                             ==> FOR DESCRIPTIONS . better check `git help remote`
@@ -34,7 +34,7 @@ git remote show
 
 - Resets changes in the staging area or working directory.
 
-```
+```bash
 git reset HEAD <file>                  ==> Unstage changes for a specific file.
 git reset --soft HEAD                  ==> Undo the last commit, keeping the changes staged.
 git reset --mixed HEAD                 ==> Undo the last commit and unstage the changes.
@@ -49,7 +49,7 @@ git reset --hard origin/master         ==> Reset to the latest version of the re
 
 - Stashes changes in a temporary area.
 
-```
+```bash
 git stash push
 git stash save
 git stash list
