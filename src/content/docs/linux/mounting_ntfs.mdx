@@ -1,0 +1,47 @@
+---
+title: Mounting NTFS to linux
+description: Useful to mount windows drive to linux
+sidebar:
+  order: 2
+---
+
+For users with a dual-boot setup or those migrating between Windows and Linux environments, the ability to seamlessly
+access and share files is paramount. This guide explores the practical steps involved in mounting an NTFS partition
+in Linux.
+
+
+### Mounting NTFS drive
+
+- `modprobe ntfs`: Loads the ntfs kernel module, enabling support for NTFS filesystems.
+- `sudo apt-get install ntfs-3g`: Installs the ntfs-3g package, which provides NTFS support in user space.
+- `sudo fdisk -l`: Lists all available disk partitions to identify the target NTFS partition (e.g., /dev/sda1).
+- `sudo mkdir /mnt/ntfs`: Creates a directory to serve as the mount point for the NTFS partition.
+
+  :::tip
+  While the traditional location for mounting external filesystems in Linux is under the /mnt directory, you are not
+  restricted to this location. You can choose any directory as the mount point, as long as it exists and is empty.
+  :::
+
+- `sudo mount -t ntfs-3g /dev/sda1 /mnt/ntfs`: Mounts the NTFS partition at /mnt/ntfs using the ntfs-3g driver.
+- `df -h`: Displays disk space usage, verifying that the NTFS partition is successfully mounted.
+- `cd /mnt/ntfs`: Changes the current directory to the mounted NTFS partition for navigation.
+
+  :::caution
+  The mount is temporary and will not persist across reboots. you'll need to manually mount the partition each time you want to access it after every system restart. Guide to automatically mount every time your system starts is provided below.
+  :::
+
+### Unmounting NTFS drive
+
+- `sudo umount /mnt/ntfs`: Unmounts the NTFS partition when done accessing it.
+- `df -h`: Verifies that the NTFS partition is no longer mounted after the unmount operation.
+
+
+
+## Automounting NTFS Partitions at Boot:
+
+- `sudo nano /etc/fstab: Opens the /etc/fstab file for editing, allowing you to specify permanent mount options.
+
+- `UUID=xxxxxxxxxxxxxxxx /mnt/ntfs ntfs-3g defaults 0 0`: Adds an entry in /etc/fstab to automatically mount the NTFS partition at boot using its UUID with default options.
+
+`sudo blkid`: Displays the UUIDs of all block devices, helping you find the UUID of the NTFS partition for the /etc/fstab entry.
+Note: Replace "xxxxxxxxxxxxxxxx" in previous step with the actual UUID of your NTFS partition, which you can find using the sudo blkid command in step 12.
