@@ -32,7 +32,7 @@ export default defineConfig({
         },
         {
           tag: "script",
-          attrs:{
+          attrs: {
             type: "text/partytown",
           },
           content: `

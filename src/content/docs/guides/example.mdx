@@ -17,16 +17,16 @@ Starlight is a documentation website toolkit built with [Astro](https://astro.bu
 
 :::tip
 Starlight is a documentation website toolkit built with [Astro](https://astro.build/). You can get started with this command:
+
 ```
 Some cool code
 ```
-:::
 
+:::
 
 :::caution
 Starlight is a documentation website toolkit built with [Astro](https://astro.build/). You can get started with this command:
 :::
-
 
 :::danger
 Starlight is a documentation website toolkit built with [Astro](https://astro.build/). You can get started with this command:
@@ -36,42 +36,38 @@ Starlight is a documentation website toolkit built with [Astro](https://astro.bu
 >
 > Blockquotes are indicated by a `>` at the start of each line.
 
-
-import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Tabs, TabItem } from "@astrojs/starlight/components";
 
 <Tabs>
-	<TabItem label="Stars">Sirius, Vega, Betelgeuse</TabItem>
-	<TabItem label="Moons">Io, Europa, Ganymede</TabItem>
+  <TabItem label="Stars">Sirius, Vega, Betelgeuse</TabItem>
+  <TabItem label="Moons">Io, Europa, Ganymede</TabItem>
 </Tabs>
 
-
-import { Card, CardGrid, LinkCard } from '@astrojs/starlight/components';
+import { Card, CardGrid, LinkCard } from "@astrojs/starlight/components";
 
 <Card title="Check this out">Interesting content you want to highlight.</Card>
 
 <CardGrid>
-	<Card title="Card 1" icon="star">
-		Sirius, Vega, Betelgeuse
-	</Card>
-	<Card title="Card 2" icon="moon">
-		Io, Europa, Ganymede
-	</Card>
+  <Card title="Card 1" icon="star">
+    Sirius, Vega, Betelgeuse
+  </Card>
+  <Card title="Card 2" icon="moon">
+    Io, Europa, Ganymede
+  </Card>
 </CardGrid>
-import { Icon } from '@astrojs/starlight/components';
+import {Icon} from '@astrojs/starlight/components';
 
 <Icon name="star" color="goldenrod" size="2rem" />
 
-
-
 <LinkCard
-	title="Customizing Starlight"
-	description="More Icons here"
-	href="https://starlight.astro.build/guides/components/#icon"
+  title="Customizing Starlight"
+  description="More Icons here"
+  href="https://starlight.astro.build/guides/components/#icon"
 />
 
 <CardGrid>
-	<LinkCard title="Link Card 1" href="/guides/authoring-content/" />
-	<LinkCard title="Link Card 2" href="/guides/components/" />
+  <LinkCard title="Link Card 1" href="/guides/authoring-content/" />
+  <LinkCard title="Link Card 2" href="/guides/components/" />
 </CardGrid>
 
 # Heading 1
