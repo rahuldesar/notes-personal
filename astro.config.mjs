@@ -53,10 +53,10 @@ export default defineConfig({
         github: "https://github.com/rahuldesar",
       },
       sidebar: [
-        {
-          label: "Intro",
-          link: "/cheatsheet",
-        },
+        // {
+        //   label: "Intro",
+        //   link: "/cheatsheet",
+        // },
         {
           label: "Linux",
           // collapsed: true,
@@ -65,17 +65,17 @@ export default defineConfig({
           },
         },
         {
-          label: "Database",
-          // collapsed: true,
-          autogenerate: {
-            directory: "database",
-          },
-        },
-        {
           label: "Programming Tools",
           // collapsed: true,
           autogenerate: {
             directory: "programming_tools",
+          },
+        },
+        {
+          label: "Database",
+          // collapsed: true,
+          autogenerate: {
+            directory: "database",
           },
         },
         {

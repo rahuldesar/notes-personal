@@ -3,6 +3,9 @@ title: Tmux
 description: Why Tmux is the best thing you will ever learn.
 sidebar:
   order: 1
+  badge:
+    text: Cool Stuff
+    variant: success
 tags: tools, tmux, config
 ---
 
