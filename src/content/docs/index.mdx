@@ -1,13 +1,13 @@
 ---
-title: "Welcome to cheatsheet"
-description: Welcome to notes and cheatsheets to elevate your developer journey
+title: "Notes Reference"
+description: Streamlined notes, references, and essential insights to supercharge your coding journey. 
 template: splash
 head:
   # Use a custom <title> tag
   - tag: title
     content: "Notes | Rahul Deshar"
 hero:
-  tagline: Cheatsheets for useful tools.
+  tagline: Streamlined notes, references, and essential insights to supercharge your coding journey. 
   image:
     file: ../../assets/images/homepage/undraw_code_thinking.svg
   actions:
@@ -17,21 +17,33 @@ hero:
       variant: primary
     - text: Check my portfolio site
       link: https://www.rahuldeshar.com.np
+      variant: secondary
       icon: external
 ---
 
 import { Card, CardGrid, LinkCard } from "@astrojs/starlight/components";
 
 ## Quick Links
-
-<CardGrid stagger>
-  <Card title="Git" icon="pencil">
-    Edit `src/content/docs/programming_tools/git` to see this page change.
-  </Card>
-  <Card title="Add new content" icon="add-document">
-    Add Markdown or MDX files to `src/content/docs` to create new pages.
-  </Card>
-  <Card title="Configure your site" icon="setting">
-    Edit your `sidebar` and other config in `astro.config.mjs`.
-  </Card>
+{/* <CardGrid stagger> */}
+<CardGrid>
+  <LinkCard
+    title="Learn Linux"
+    description="Explore essential Linux commands and solution for common problems."
+    href="/linux/intro_to_linux"
+  />
+  <LinkCard
+    title="Programming Tools that I use"
+    description="Discover key programming tools and utilities with me."
+    href="/programming_tools/tmux"
+  />
+  <LinkCard
+    title="Learn Database with me"
+    description="Dive into databases."
+    href="/database/intro/"
+  />
+  <LinkCard
+    title="Quick Reference"
+    description="Access concise references for Starlight elements."
+    href="/guides/example/"
+  />
 </CardGrid>

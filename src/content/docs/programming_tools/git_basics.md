@@ -1,5 +1,5 @@
 ---
-title: "Git basics"
+title: "Git | Basic commands"
 description: Welcome to notes and cheatsheets to elevate your developer journey
 sidebar:
   order: 3

@@ -1,5 +1,5 @@
 ---
-title: "Git | medium commands"
+title: "Git | Medium commands"
 description: Welcome to notes and cheatsheets to elevate your developer journey
 sidebar:
   order: 4

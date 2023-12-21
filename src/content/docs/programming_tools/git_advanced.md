@@ -1,5 +1,5 @@
 ---
-title: "Git advanced codes"
+title: "Git | Advanced commands"
 description: Welcome to notes and cheatsheets to elevate your developer journey
 sidebar:
   order: 5
