@@ -9,7 +9,6 @@ For users with a dual-boot setup or those migrating between Windows and Linux en
 access and share files is paramount. This guide explores the practical steps involved in mounting an NTFS partition
 in Linux.
 
-
 ### Mounting NTFS drive
 
 - `modprobe ntfs`: Loads the ntfs kernel module, enabling support for NTFS filesystems.
@@ -18,8 +17,7 @@ in Linux.
 - `sudo mkdir /mnt/ntfs`: Creates a directory to serve as the mount point for the NTFS partition.
 
   :::tip
-  While the traditional location for mounting external filesystems in Linux is under the /mnt directory, you are not
-  restricted to this location. You can choose any directory as the mount point, as long as it exists and is empty.
+  While the traditional location for mounting external filesystems in Linux is under the /mnt directory, you are not restricted to this location. You can choose any directory as the mount point, as long as it exists and is empty.
   :::
 
 - `sudo mount -t ntfs-3g /dev/sda1 /mnt/ntfs`: Mounts the NTFS partition at /mnt/ntfs using the ntfs-3g driver.
@@ -35,13 +33,13 @@ in Linux.
 - `sudo umount /mnt/ntfs`: Unmounts the NTFS partition when done accessing it.
 - `df -h`: Verifies that the NTFS partition is no longer mounted after the unmount operation.
 
-
-
 ## Automounting NTFS Partitions at Boot:
 
 - `sudo nano /etc/fstab`: Opens the /etc/fstab file for editing, allowing you to specify permanent mount options.
 
 - `UUID=xxxxxxxxxxxxxxxx /mnt/ntfs ntfs-3g defaults 0 0`: Adds an entry in /etc/fstab to automatically mount the NTFS partition at boot using its UUID with default options.
+  :::tip
+  `sudo blkid`: Displays the UUIDs of all block devices, helping you find the UUID of the NTFS partition for the /etc/fstab entry.
+  :::
 
-`sudo blkid`: Displays the UUIDs of all block devices, helping you find the UUID of the NTFS partition for the /etc/fstab entry.
-Note: Replace "xxxxxxxxxxxxxxxx" in previous step with the actual UUID of your NTFS partition, which you can find using the sudo blkid command in step 12.
+- Replace "xxxxxxxxxxxxxxxx" in previous step with the actual UUID of your NTFS partition.
