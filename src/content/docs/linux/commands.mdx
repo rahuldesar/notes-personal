@@ -1,0 +1,132 @@
+---
+title: Basic Linux Commands
+description: Linux commands
+sidebar:
+  order: 2
+---
+
+import { LinkCard } from "@astrojs/starlight/components";
+
+Linux commands can be categorized into different groups based on their functionality. Here's a list of essential Linux commands organized by groups:
+
+:::note
+
+## Most Important Commands
+
+1. **`man`:**
+   - _Description:_ Display manual pages for commands.
+   - _Usage:_ `man command`
+   - _Example:_ `man ls`
+2. **`info`:**
+   - _Description:_ Display documentation in a hypertext format.
+   - _Usage:_ `info command`
+   - _Example:_ `info ls`
+3. **`--help` or `-h` option:**
+   - _Description:_ Display a summary of command usage and options.
+   - _Usage:_ `ls --help`
+   - _Example:_ `man ls`
+4. **`apropos`:**
+   - _Description:_ Search the manual page names and descriptions for a keyword.
+   - _Usage:_ `apropos keyword`
+   - _Example:_ `apropos disk`
+5. **`whatis`:**
+   - _Description:_ Display a brief description of a command.
+   - _Usage:_ `whatis command`
+   - _Example:_ `whatis ls`
+
+<LinkCard
+  title="tldr-pages"
+  description="Collection of community-maintained help pages for command-line tools"
+  href="https://github.com/tldr-pages/tldr"
+/>
+
+:::
+
+## File and Directory Operations
+
+- `ls`: List directory contents.
+- `cat`: Display file contents.
+- `pwd`: Print current directory.
+- `cp`: Copy files/directories.
+- `mv`: Move/rename files/directories.
+- `rm`: Remove files/directories (caution).
+- `mkdir`: Create a new directory.
+- `rmdir`: Remove an empty directory.
+
+## File Viewing and Editing
+
+- `cat`: Concatenate and display file content.
+- `touch`: Create an empty file.
+- `more`: Display content one screen at a time.
+- `less`: Display content with advanced features.
+- `head`: Display the beginning of a file.
+- `tail`: Display the end of a file.
+- `nano`: Simple text editor.
+- `vim` or `vi`: Advanced text editor.
+
+## File Permissions
+
+- `chmod` - Change file permissions
+- `chown` - Change file owner
+- `chgrp` - Change file group
+
+## System Information
+
+- `uname`: Display system information.
+- `df`: Display disk space usage.
+- `du`: Display file and directory space usage.
+- `top`: Display and manage system processes.
+- `free`: Display amount of free and used system memory.
+
+## User and Group Management
+
+- `passwd` - Change user password
+- `useradd` - Add a new user
+- `userdel` - Delete a user
+- `groupadd` - Add a new group
+- `groupdel` - Delete a group
+
+## Package Management
+
+- `apt` or `apt-get` - Advanced Package Tool for Debian/Ubuntu
+- `yum` - Yellowdog Updater Modified for CentOS/RHEL
+- `dnf` - Dandified Yum for Fedora
+- `pacman` - Package Manager for Arch
+
+## Networking
+
+- `ifconfig`: Configure network interfaces.
+- `ping`: Test network connectivity.
+- `traceroute`: Display the route packets take to a network host.
+- `netstat`: Display network connections, routing tables, interface statistics, masquerade connections, and multicast memberships.
+- `hostname`: Display or set the system's hostname.
+- `hostnamectl`: Control the system hostname and related settings.
+
+## Process Management
+
+- `ps` - Display information about active processes
+- `kill` - Terminate a process
+- `killall` - Kill processes by name
+- `pkill` - Signal processes based on their name
+
+## Archiving and Compression
+
+- `tar` - Create or extract tar archives
+- `gzip` - Compress or decompress files
+- `zip` - Package and compress files in ZIP format
+
+## Search and Text Processing
+
+- `grep` - Search for patterns in files
+- `find` - Search for files and directories
+- `sed` - Stream editor for filtering and transforming text
+
+## System Shutdown and Reboot
+
+- `shutdown` - Schedule a time for the system to be powered down
+- `reboot` - Restart the system immediately
+
+## File System Navigation
+
+- `cd` - Change directory
+- `pwd` - Print working directory
