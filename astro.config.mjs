@@ -72,8 +72,15 @@ export default defineConfig({
           },
         },
         {
+          label: "Rust Notes",
+          badge: "New",
+          autogenerate: {
+            directory: "rust",
+          },
+        },
+        {
           label: "Database",
-          // collapsed: true,
+          collapsed: true,
           autogenerate: {
             directory: "database",
           },
