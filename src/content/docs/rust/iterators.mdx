@@ -1,0 +1,68 @@
+---
+title: Iterators 
+description: Short note on Iterators
+sidebar:
+  order: 4
+---
+
+[Source](https://doc.rust-lang.org/book/ch13-02-iterators.html)
+
+Topics to cover
+
+- `Iterator` triat
+- `next` Method
+- `iter`, `into_iter` and `iter_mut` methods
+- `collect` method
+
+Trait Definition:
+
+```rs
+pub trait Iterator {
+    type Item;
+
+    fn next(&mut self) -> Option<Self::Item>;
+
+    // methods with default implementations elided
+}
+```
+
+**iter**: The `iter` method produces an iterator over **immutable** references.
+
+**into_iter**: If we want to create an iterator that takes ownership of source vector and returns owned values, we can call `into_iter` instead of `iter`.
+
+**iter_mut**: Similarly, if we want to iterate over **mutable** references, we can call `iter_mut` instead of `iter`.
+
+**collect**: This method consumes the _iterator_ and collects the resulting values into a **collection** data type.
+
+## Methods that consume iterators
+
+- **Consuming Adaptors** : methods that call `next`
+  - Example: sum
+    `let total: i32 = v1_iter.sum();`{ .rust }
+
+## Methods that produce iterators
+
+- **Iterator Adaptors** : they produce different iterators by changing some aspect of the original iterator
+  - Example: `map`
+  ```rs
+    let v1: Vec<i32> = vec![1, 2, 3];
+    v1.iter().map(|x| x + 1);
+  ```
+
+### Using Closures that Capture Their Environment
+
+Many iterator adapters take closures as arguments
+
+- Example : `filter`
+
+```rs
+struct Shoe {
+    size: u32,
+    style: String,
+}
+
+fn shoes_in_size(shoes: Vec<Shoe>, shoe_size: u32) -> Vec<Shoe> {
+    shoes.into_iter().filter(|s| s.size == shoe_size).collect()
+}
+```
+
