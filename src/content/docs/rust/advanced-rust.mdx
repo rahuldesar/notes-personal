@@ -1,0 +1,45 @@
+---
+title: Advanced Rust 
+description: Short note on Unsafe Rust
+sidebar:
+  order: 9
+---
+
+## Unsafe Rust
+### Unsafe Superpowers
+
+- Dereference a raw pointer
+  - raw pointers can be immutable or mutable and are written as *const T and *mut T, respectively
+- Call an unsafe function or method
+  - `unsafe` function has requirements we need to uphold and Rust can’t guarantee we’ve met these requirements
+
+  ```rs 
+      unsafe fn dangerous() {} // unsafe function
+
+      unsafe {
+          dangerous();         // usage
+      }
+
+  ```
+- Access or modify a mutable static variable
+- Implement an unsafe trait
+- Access fields of unions
+
+
+:::note
+Unsafe Rust doesn't turn off the borrow checker, or disable any rust safety checks.
+
+:::
+
+
+##  Advanced Traits
+
+### Placeholder Types
+### Traits Overloading
+### Supertrait
+:::caution
+TODO
+:::
+
+## Advanced Types
+### Newtype Pattern 
