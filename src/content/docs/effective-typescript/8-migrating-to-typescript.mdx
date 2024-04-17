@@ -1,12 +1,37 @@
 ---
 title: Migrating to TypeScript
-description: Migrating to TypeScript 
+description: Migrating to TypeScript
 sidebar:
   order: 9
 ---
 
 ### **58. Write Modern JavaScript**
+
+- TypeScript lets you write modern JavaScript whatever your runtime environment. Take advantage of this by using the language features it enables. In addition to improving your codebase, this will help TypeScript understand your code.
+- Use TypeScript to learn language features like classes, destructuring, and async/await.
+- Don’t bother with 'use strict': TypeScript is stricter.
+- Check the TC39 GitHub repo and TypeScript release notes to learn about all the latest language features.
+
 ### **59. Use @ts-check and JSDoc to Experiment with TypeScript**
+
+- Add "// @ts-check" to the top of a JavaScript file to enable type checking.
+- Recognize common errors. Know how to declare globals and add type declarations for third-party libraries.
+- Use JSDoc annotations for type assertions and better type inference.
+- Don’t spend too much time getting your code perfectly typed with JSDoc. Remember that the goal is to convert to .ts!
+
 ### **60. Use allowJs to Mix TypeScript and JavaScript**
+
+- Use the allowJs compiler option to support mixed JavaScript and TypeScript as you transition your project.
+- Get your tests and build chain working with TypeScript before beginning largescale migration.
+
 ### **61. Convert Module by Module Up Your Dependency Graph**
+
+- Start migration by adding @types for third-party modules and external API calls.
+- Begin migrating your modules from the bottom of the dependency graph upwards. The first module will usually be some sort of utility code. Consider visualizing the dependency graph to help you track progress.
+- Resist the urge to refactor your code as you uncover odd designs. Keep a list of ideas for future refactors, but stay focused on TypeScript conversion.
+- Be aware of common errors that come up during conversion. Copy JSDoc annotations if necessary to avoid losing type safety as you convert.
+
 ### **62. Don’t Consider Migration Complete Until You Enable noImplicitAny**
+
+- Don’t consider your TypeScript migration done until you adopt noImplicitAny. Loose type checking can mask real mistakes in type declarations.
+- Fix type errors gradually before enforcing noImplicitAny. Give your team a chance to get comfortable with TypeScript before adopting stricter checks.

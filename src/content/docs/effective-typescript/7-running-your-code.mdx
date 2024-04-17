@@ -1,12 +1,34 @@
 ---
 title: Writing and Running Your Code
-description: Writing and Running Your Code 
+description: Writing and Running Your Code
 sidebar:
   order: 8
 ---
 
 ### **53. Prefer ECMAScript Features to TypeScript Features**
+
+- By and large, you can convert TypeScript to JavaScript by removing all the types from your code.
+- Enums, parameter properties, triple-slash imports, and decorators are historical exceptions to this rule.
+- In order to keep TypeScript’s role in your codebase as clear as possible, I recommend avoiding these features
+
 ### **54. Know How to Iterate Over Objects**
+
+- Use let k: keyof T and a for-in loop to iterate objects when you know exactly what the keys will be. Be aware that any objects your function receives as parameters might have additional keys.
+- Use Object.entries to iterate over the keys and values of any object.
+
 ### **55. Understand the DOM hierarchy**
+
+- The DOM has a type hierarchy that you can usually ignore while writing JavaScript. But these types become more important in TypeScript. Understanding them will help you write TypeScript for the browser.
+- Know the differences between Node, Element, HTMLElement, and EventTarget, as well as those between Event and MouseEvent.
+- Either use a specific enough type for DOM elements and Events in your code or give TypeScript the context to infer it.
+
 ### **56. Don’t Rely on Private to Hide Information**
+
+- The private access modifier is only enforced through the type system. It has no effect at runtime and can be bypassed with an assertion. Don’t assume it will keep data hidden.
+- For more reliable information hiding, use a closure.
+
 ### **57. Use Source Maps to Debug TypeScript**
+
+- Don’t debug generated JavaScript. Use source maps to debug your TypeScript code at runtime.
+- Make sure that your source maps are mapped all the way through to the code that you run.
+- Depending on your settings, your source maps might contain an inline copy of your original code. Don’t publish them unless you know what you’re doing!

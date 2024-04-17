@@ -7,16 +7,42 @@ sidebar:
 
 ### **45. Put TypeScript and @types in devDependencies**
 
+- Avoid installing TypeScript system-wide. Make TypeScript a devDependency of your project to ensure that everyone on the team is using a consistent version.
+- Put @types dependencies in devDependencies, not dependencies. If you need @types at runtime, then you may want to rework your process.
+
 ### **46. Understand the Three Versions Involved in Type Declarations**
+
+- There are three versions involved in an @types dependency: the library version, the @types version, and the TypeScript version.
+- If you update a library, make sure you update the corresponding @types.
+- Understand the pros and cons of bundling types versus publishing them on DefinitelyTyped. Prefer bundling types if your library is written in TypeScript and DefinitelyTyped if it is not.
 
 ### **47. Export All Types That Appear in Public APIs**
 
+- Export types that appear in any form in any public method. Your users will be able to extract them anyway, so you may as well make it easy for them.
+
 ### **48. Use TSDoc for API Comments**
+
+- Use JSDoc-/TSDoc-formatted comments to document exported functions, classes, and types. This helps editors surface information for your users when it’s
+  most relevant.
+- Use @param, @returns, and Markdown for formatting.
+- Avoid including type information in documentation (see Item 30)
 
 ### **49. Provide a Type for this in Callbacks**
 
+- Understand how this binding works.
+- Provide a type for this in callbacks when it’s part of your API.
+
 ### **50. Prefer Conditional Types to Overloaded Declarations**
+
+- Prefer conditional types to overloaded type declarations. By distributing over unions, conditional types allow your declarations to support union types without additional overloads.
 
 ### **51. Mirror Types to Sever Dependencies**
 
+- Use structural typing to sever dependencies that are nonessential.
+- Don’t force JavaScript users to depend on @types. Don’t force web developers to depend on NodeJS.
+
 ### **52. Be Aware of the Pitfalls of Testing Types**
+
+- When testing types, be aware of the difference between equality and assignability, particularly for function types.
+- For functions that use callbacks, test the inferred types of the callback parameters. Don’t forget to test the type of this if it’s part of your API.
+- Be wary of any in tests involving types. Consider using a tool like dtslint for stricter, less error-prone checking.
