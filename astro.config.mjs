@@ -65,7 +65,7 @@ export default defineConfig({
           },
         },
         {
-          label: "Programming Tools",
+          label: "My Toolchain",
           // collapsed: true,
           autogenerate: {
             directory: "programming_tools",
@@ -73,14 +73,14 @@ export default defineConfig({
         },
         {
           label: "Effective Typescript",
-          badge: "New",
+          collapsed: true,
           autogenerate: {
             directory: "effective-typescript",
           },
         },
         {
           label: "Rust Notes",
-          badge: "New",
+          collapsed: true,
           autogenerate: {
             directory: "rust",
           },
@@ -100,9 +100,16 @@ export default defineConfig({
           },
         },
         {
+          label: "Future Me",
+          collapsed: true,
+          autogenerate: {
+            directory: "future-me",
+          },
+        },
+        {
           label: "Helper",
           link: "/guides/example/",
-          badge: "tip",
+          badge: "Reference",
         },
       ],
     }),
