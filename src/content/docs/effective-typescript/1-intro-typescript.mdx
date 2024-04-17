@@ -7,15 +7,75 @@ sidebar:
 
 ### **1. Understand the Relationship Between TypeScript and JavaScript**
 
-• TypeScript is a superset of JavaScript. In other words, all JavaScript programs are already TypeScript programs. TypeScript has some syntax of its own, so TypeScript programs are not, in general, valid JavaScript programs.
-• TypeScript adds a type system that models JavaScript’s runtime behavior and tries to spot code which will throw exceptions at runtime. But you shouldn’t expect it to flag every exception. It is possible for code to pass the type checker but still
-throw at runtime.
-• While TypeScript’s type system largely models JavaScript behavior, there are some constructs that JavaScript allows but TypeScript chooses to bar, such as calling functions with the wrong number of arguments. This is largely a matter of taste.
+- TypeScript is a superset of JavaScript. In other words, all JavaScript programs are already TypeScript programs. TypeScript has some syntax of its own, so TypeScript programs are not, in general, valid JavaScript programs.
+- TypeScript adds a type system that models JavaScript’s runtime behavior and tries to spot code which will throw exceptions at runtime. But you shouldn’t expect it to flag every exception. It is possible for code to pass the type checker but still throw at runtime.
+- While TypeScript’s type system largely models JavaScript behavior, there are some constructs that JavaScript allows but TypeScript chooses to bar, such as calling functions with the wrong number of arguments. This is largely a matter of taste.
 
 ### **2. Know Which TypeScript Options You’re Using**
 
+:::tip
+Options can be set via the command line or via configuration file `tsconfig.json`.
+
+```sh
+tsc --noImplicitAny program.ts
+```
+
+```json
+//tsconfig.json
+{
+  "compilerOptions": {
+    "noImplicitAny": true
+  }
+}
+```
+
+:::
+
+- The TypeScript compiler includes several [settings](https://www.typescriptlang.org/tsconfig) which affect core aspects of the language.
+- Configure TypeScript using `tsconfig.json` rather than command-line options.
+- Turn on `noImplicitAny` unless you are transitioning a JavaScript project to TypeScript.
+- Use `strictNullChecks` to prevent “undefined is not an object”-style runtime errors.
+- Aim to enable strict to get the most thorough checking that TypeScript can offer.
+
 ### **3. Understand That Code Generation Is Independent of Types**
+
+:::note
+`tsc` does two things
+
+- Transpiles ts/js into older version of js
+- Checks for type error
+
+:::
+
+- Code generation is independent of the type system. This mean that TypeScript types cannot affect the runtime behavior
+  or performance of your code.
+- It is possible for a program with type errors to produce code ("compile").
+- TypeScript types are not available ar runtime. To query a type at runtime, you need some way to reconstruct it.
+  Tagged unions and property checking are common ways to do this. Some constructs, such as `class`, introduce both a
+  TypeScript type and a value that is available at runtime.
 
 ### **4. Get Comfortable with Structural Typing**
 
-### **5. Limit Use of the any Type**
+- Understand that JavaScript is duck typed and TypeScript uses structural typing to
+  model this: values assignable to your interfaces might have properties beyond
+  those explicitly listed in your type declarations. Types are not “sealed.”
+- Be aware that classes also follow structural typing rules. You may not have an
+  instance of the class you expect!
+- Use structural typing to facilitate unit testing.
+
+### **5. Limit Use of the `any` Type**
+
+:::caution
+
+- There are no language services for `any` type. (autocomplete and stuff)
+- `any` type mask bugs when you refactor code.
+- `any` hides you type design.
+- `any` undermines confidence on type system.
+
+:::
+
+- The any type effectively silences the type checker and TypeScript language services. It can mask real problems, harm developer experience, and undermine confidence in the type system. Avoid using it when you can!
+
+:::note
+Using `any` is discussed more in [Chapter 5: Working with any](/effective-typescript/5-any)
+:::
