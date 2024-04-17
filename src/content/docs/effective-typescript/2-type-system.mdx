@@ -25,24 +25,117 @@ When you install TypeScript, you get two executables:
 
 ### **7: Think of Types as Sets of Values**
 
+:::caution
+Read this section again
+:::
+
+- Think of types as sets of values (the type’s domain). These sets can either be finite (e.g., boolean or literal types) or infinite (e.g., number or string).
+- TypeScript types form intersecting sets (a Venn diagram) rather than a strict hierarchy. Two types can overlap without either being a subtype of the other.
+- Remember that an object can still belong to a type even if it has additional properties that were not mentioned in the type declaration.
+- Type operations apply to a set’s domain. The intersection of A and B is the intersection of A’s domain and B’s domain. For object types, this means that values in A & B have the properties of both A and B.
+- Think of “extends,” “assignable to,” and “subtype of ” as synonyms for “subset of.”
+
 ### **8: Know How to Tell Whether a Symbol Is in the Type Space or Value Space**
+
+:::note
+A symbol in TypeScript exists in one of two spaces:
+
+- Type space
+- Value space
+
+:::
+
+- Know how to tell whether you’re in type space or value space while reading a
+  TypeScript expression. Use the TypeScript playground to build an intuition for
+  this.
+- Every value has a type, but types do not have values. Constructs such as type and
+  interface exist only in the type space.
+- "foo" might be a string literal, or it might be a string literal type. Be aware of this
+  distinction and understand how to tell which it is.
+- `typeof`, `this`, and many other operators and keywords have different meanings
+  in type space and value space.
+- Some constructs such as `class` or `enum` introduce both a type and a value.
 
 ### **9: Prefer Type Declarations to Type Assertions**
 
+- Prefer type declarations (: Type) to type assertions (as Type).
+- Know how to annotate the return type of an arrow function.
+
+  :::note
+  It’s not always clear how to use a declaration with arrow functions. A more concise
+  way is to declare the return type of the arrow function.
+
+  ```js
+  interface Person { name: string };
+
+  const people = ['alice', 'bob', 'jan'].map(
+  (name): Person => ({name})
+  ); // Type is Person[]
+  ```
+
+  The parentheses are significant here!
+  `(name: Person)` is different than `(name): Person`
+
+  :::
+
+- Use type assertions and non-null assertions when you know something about
+  types that TypeScript does not.
+
 ### **10: Avoid Object Wrapper Types (String, Number, Boolean, Symbol, BigInt)**
+
+- Understand how object wrapper types are used to provide methods on primitive values. Avoid instantiating them or using them directly.
+- Avoid TypeScript object wrapper types. Use the primitive types instead: string instead of String, number instead of Number, boolean instead of Boolean, symbol instead of Symbol, and bigint instead of BigInt.
 
 ### **11: Recognize the Limits of Excess Property Checking**
 
+- When you assign an object literal to a variable or pass it as an argument to a
+  function, it undergoes excess property checking.
+- Excess property checking is an effective way to find errors, but it is distinct from
+  the usual structural assignability checks done by the TypeScript type checker.
+  Conflating these processes will make it harder for you to build a mental model of
+  assignability.
+- Be aware of the limits of excess property checking: introducing an intermediate
+  variable will remove these checks.
+
 ### **12: Apply Types to Entire Function Expressions When Possible**
+
+- Consider applying type annotations to entire function expressions, rather than to their parameters and return type.
+- If you’re writing the same type signature repeatedly, factor out a function type or look for an existing one. If you’re a library author, provide types for common callbacks.
+- Use `typeof fn` to match the signature of another function.
 
 ### **13: Know the Differences Between type and interface**
 
+- Understand the differences and similarities between `type` and `interface`.
+- Know how to write the same types using either syntax.
+- In deciding which to use in your project, consider the established style and whether augmentation might be beneficial.
+
 ### **14: Use Type Operations and Generics to Avoid Repeating Yourself**
+
+- The DRY (don’t repeat yourself) principle applies to types as much as it applies to logic.
+- Name types rather than repeating them. Use extends to avoid repeating fields in interfaces.
+- Build an understanding of the tools provided by TypeScript to map between types. These include keyof, typeof, indexing, and mapped types.
+- Generic types are the equivalent of functions for types. Use them to map between types instead of repeating types. Use `extends` to constrain generic types.
+- Familiarize yourself with generic types defined in the standard library such as `Pick`, `Partial`, and `ReturnType`.
 
 ### **15: Use Index Signatures for Dynamic Data**
 
+- Use `index signatures` when the properties of an object cannot be known until runtime—for example, if you’re loading them from a CSV file.
+- Consider adding `undefined` to the value type of an `index signature` for safer access.
+- Prefer more precise types to index signatures when possible: `interfaces`, `Records`, or mapped types.
+
 ### **16: Prefer Arrays, Tuples, and ArrayLike to number Index Signatures**
+
+- Understand that arrays are objects, so their keys are strings, not numbers. number as an `index signature` is a purely TypeScript construct which is designed to help catch bugs.
+- Prefer `Array`, `tuple`, or `ArrayLike` types to using number in an index signature yourself.
 
 ### **17: Use readonly to Avoid Errors Associated with Mutation**
 
+- If your function does not modify its parameters then declare them readonly. This makes its contract clearer and prevents inadvertent mutations in its implementation.
+- Use `readonly` to prevent errors with mutation and to find the places in your code where mutations occur.
+- Understand the difference between `const` and `readonly`.
+- Understand that `readonly` is shallow.
+
 ### **18: Use Mapped Types to Keep Values in Sync**
+
+- Use mapped types to keep related values and types synchronized.
+- Consider using mapped types to force choices when adding new properties to an interface.

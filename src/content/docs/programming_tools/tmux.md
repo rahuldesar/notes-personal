@@ -11,7 +11,7 @@ tags: tools, tmux, config
 
 This article briefly introduces tmux, and provides a recommended startup config to make tmux easier to use.
 
-## Why tmux?
+## Why Tmux (Terminal Multiplexer)?
 
 Linux is a pretty popular server solution. It is used by many tech giants to build its backend data centers, and also small businesses as their backend infra.
 

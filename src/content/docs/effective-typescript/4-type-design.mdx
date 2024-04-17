@@ -1,17 +1,60 @@
 ---
 title: Type Design
-description: Type Design 
+description: Type Design
 sidebar:
   order: 5
 ---
 
 ### **28. Prefer Types That Always Represent Valid States**
+
+- Types that represent both valid and invalid states are likely to lead to confusing and error-prone code.
+- Prefer types that only represent valid states. Even if they are longer or harder to express, they will save you time and pain in the end!
+
 ### **29. Be Liberal in What You Accept and Strict in What You Produce**
+
+- Input types tend to be broader than output types. Optional properties and union types are more common in parameter types than return types.
+- To reuse types between parameters and return types, introduce a canonical form (for return types) and a looser form (for parameters).
+
 ### **30. Don’t Repeat Type Information in Documentation**
+
+- Avoid repeating type information in comments and variable names. In the best case it is duplicative of type declarations, and in the worst it will lead to conflicting information.
+- Consider including units in variable names if they aren’t clear from the type (e.g., timeMs or temperatureC).
+
 ### **31. Push Null Values to the Perimeter of Your Types**
+
+- Avoid designs in which one value being null or not null is implicitly related to another value being null or not null.
+- Push null values to the perimeter of your API by making larger objects either null or fully non-null. This will make code clearer both for human readers and for the type checker.
+- Consider creating a fully non-null class and constructing it when all values are available.
+- While strictNullChecks may flag many issues in your code, it’s indispensable for surfacing the behavior of functions with respect to null values.
+
 ### **32. Prefer Unions of Interfaces to Interfaces of Unions**
+
+- Interfaces with multiple properties that are union types are often a mistake because they obscure the relationships between these properties.
+- Unions of interfaces are more precise and can be understood by TypeScript.
+- Consider adding a “tag” to your structure to facilitate TypeScript’s control flow analysis. Because they are so well supported, tagged unions are ubiquitous in TypeScript code.
+
 ### **33. Prefer More Precise Alternatives to String Types**
+
+- Avoid “stringly typed” code. Prefer more appropriate types where not every string is a possibility.
+- Prefer a union of string literal types to string if that more accurately describes the domain of a variable. You’ll get stricter type checking and improve the development experience. • Prefer keyof T to string for function parameters that are expected to be properties of an object.
+
 ### **34. Prefer Incomplete Types to Inaccurate Types**
+
+- Avoid the uncanny valley of type safety: incorrect types are often worse than no types.
+- If you cannot model a type accurately, do not model it inaccurately! Acknowledge the gaps using any or unknown.
+- Pay attention to error messages and autocomplete as you make typings increasingly precise. It’s not just about correctness: developer experience matters, too.
+
 ### **35. Generate Types from APIs and Specs, Not Data**
+
+- Consider generating types for API calls and data formats to get type safety all the way to the edge of your code.
+- Prefer generating code from specs rather than data. Rare cases matter!
+
 ### **36. Name Types Using the Language of Your Problem Domain**
+
+- Reuse names from the domain of your problem where possible to increase the readability and level of abstraction of your code.
+- Avoid using different names for the same thing: make distinctions in names meaningful.
+
 ### **37. Consider “Brands” for Nominal Typing**
+
+- TypeScript uses structural (“duck”) typing, which can sometimes lead to surprising results. If you need nominal typing, consider attaching “brands” to your values to distinguish them.
+- In some cases you may be able to attach brands entirely in the type system, rather than at runtime. You can use this technique to model properties outside of TypeScript’s type system.

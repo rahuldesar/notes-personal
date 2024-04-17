@@ -1,14 +1,43 @@
 ---
 title: Working with any
-description: Working with any 
+description: Working with any
 sidebar:
   order: 6
 ---
 
 ### **38. Use the Narrowest Possible Scope for any Types**
+
+- Make your uses of any as narrowly scoped as possible to avoid undesired loss of type safety elsewhere in your code.
+- Never return an any type from a function. This will silently lead to the loss of type safety for any client calling the function.
+- Consider @ts-ignore as an alternative to any if you need to silence one error.
+
 ### **39. Prefer More Precise Variants of any to Plain any**
+
+- When you use any, think about whether any JavaScript value is truly permissible.
+- Prefer more precise forms of any such as any[] or `{[id: string]: any}` or `() => any` if they more accurately model your data.
+
 ### **40. Hide Unsafe Type Assertions in Well-Typed Functions**
+
+- Sometimes unsafe type assertions are necessary or expedient. When you need to use one, hide it inside a function with a correct signature.
+
 ### **41. Understand Evolving any**
+
+- While TypeScript types typically only refine, implicit any and any[] types are allowed to evolve. You should be able to recognize and understand this construct where it occurs.
+- For better error checking, consider providing an explicit type annotation instead of using evolving any.
+
 ### **42. Use unknown Instead of any for Values with an Unknown Type**
+
+- The unknown type is a type-safe alternative to any. Use it when you know you have a value but do not know what its type is.
+- Use unknown to force your users to use a type assertion or do type checking.
+- Understand the difference between {}, object, and unknown.
+
 ### **43. Prefer Type-Safe Approaches to Monkey Patching**
+
+- Prefer structured code to storing data in globals or on the DOM.
+- If you must store data on built-in types, use one of the type-safe approaches (augmentation or asserting a custom interface).
+- Understand the scoping issues of augmentations.
+
 ### **44. Track Your Type Coverage to Prevent Regressions in Type Safety**
+
+- Even with noImplicitAny set, any types can make their way into your code either through explicit anys or third-party type declarations (@types).
+- Consider tracking how well-typed your program is. This will encourage you to revisit decisions about using any and increase type safety over time.
