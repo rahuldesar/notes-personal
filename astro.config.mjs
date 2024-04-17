@@ -72,6 +72,13 @@ export default defineConfig({
           },
         },
         {
+          label: "Effective Typescript",
+          badge: "New",
+          autogenerate: {
+            directory: "effective-typescript",
+          },
+        },
+        {
           label: "Rust Notes",
           badge: "New",
           autogenerate: {
