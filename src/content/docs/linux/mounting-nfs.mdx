@@ -1,0 +1,70 @@
+---
+title: Mounting Network File System, NFS
+description: How to mount NFS to linux and macOS
+sidebar:
+  order: 5
+---
+
+## Setting up NFS server
+  1. Install and Start NFS Server
+
+  ```bash
+  sudo apt install nfs-kernel-server
+  sudo systemctl start nfs-kernel-server.service
+  ```
+
+  2. Update Configuration `/etc/exports`
+
+  ```bash
+  /srv     *(ro,sync,subtree_check)
+  /home    *.hostname.com(rw,sync,no_subtree_check)
+  /scratch *(rw,async,no_subtree_check,no_root_squash)
+  ```
+
+  3. Apply new config
+
+  ```sh
+  sudo exportfs -a
+  ```
+
+
+## Setting up NFS client
+  1. Verify mount
+
+  ```sh
+  showmount -e hostname/ip
+  ```
+
+
+  2. Mounting to Unix/Linux
+  ```sh
+  sudo mount -t nfs -o resvport,rw source:source_path mouth_destination
+  ```
+
+  :::note
+  resvport is to solve `Operation not permitted` in macOS
+  :::
+
+  3. Permanent Mounting (updating `fstab`)
+  - Use `sudo vifs`
+  ```sh
+  source:source_path mount_destination nfs rw,nolockd,resvport,hard,bg,intr,rw,tcp,nfc,rsize=65536,wsize=65536
+  ```
+  :::note
+  `rw,nolockd,resvport,hard,bg,intr,rw,tcp,nfc,rsize=65536,wsize=65536` are mounting options
+  :::
+
+
+  4. Unmounting
+
+  ```sh
+  sudo umount mount_path
+  ```
+  **Unmounting in MacOS**
+  ```sh
+  diskutil unmount mount_path
+  ```
+
+## Resources for Future
+
+- [Authentication, NFS over Wireguard](https://alexdelorenzo.dev/linux/2020/01/28/nfs-over-wireguard)

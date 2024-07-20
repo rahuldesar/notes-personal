@@ -113,7 +113,26 @@ A symbol in TypeScript exists in one of two spaces:
 
 - The DRY (don’t repeat yourself) principle applies to types as much as it applies to logic.
 - Name types rather than repeating them. Use extends to avoid repeating fields in interfaces.
-- Build an understanding of the tools provided by TypeScript to map between types. These include keyof, typeof, indexing, and mapped types.
+- Build an understanding of the tools provided by TypeScript to map between types. These include `keyof`, `typeof`,
+  indexing, and `mapped types`.
+
+  :::note
+  Example of mapped types.
+  ```ts
+  interface State {
+    userId: number;
+    pageTitle: string;
+    recentFiles: string[];
+    pageContents: string;
+  }
+
+  type TopNavState = {
+    [k in "userId" | "pageTitle" | "recentFiles"]: State[k];
+  };
+
+  type TopNavStatePick = Pick<State, "userId" | "pageTitle" | "recentFiles">; // using Pick
+  ```
+  :::
 - Generic types are the equivalent of functions for types. Use them to map between types instead of repeating types. Use `extends` to constrain generic types.
 - Familiarize yourself with generic types defined in the standard library such as `Pick`, `Partial`, and `ReturnType`.
 
