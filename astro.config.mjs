@@ -64,6 +64,14 @@ export default defineConfig({
             directory: "linux",
           },
         },
+
+        {
+          label: "Go Exercises Notes",
+          // collapsed: true,
+          autogenerate: {
+            directory: "go-exercises",
+          },
+        },
         {
           label: "My Toolchain",
           // collapsed: true,
