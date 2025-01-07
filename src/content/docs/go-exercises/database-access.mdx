@@ -1,0 +1,89 @@
+---
+title: Accessing a relational database
+description: Basics of accessing relational database with Go
+sidebar:
+  order: 1
+---
+
+## Task Done
+
+- Set up a database.
+- Import the database driver.
+- Get a database handle and connect.
+- Query for multiple rows.
+- Query for a single row.
+- Add data.
+
+## Notes
+
+Go has standard package library for sql [database/sql](https://pkg.go.dev/database/sql). For more details check [Go: accessing relational database](https://go.dev/doc/database/)
+
+Go also supports ORM libraries: [GORM](https://gorm.io/index.html), [ent](https://entgo.io/)
+
+Drivers for different Relational Database can be found here [SQLDrivers](https://go.dev/wiki/SQLDrivers)
+
+For mysql, we will be using [go-sql-driver/mysql](https://github.com/go-sql-driver/mysql/)
+
+## Steps
+
+### Create Database and populate data
+
+```sh
+mysql -u root -p -h 127.0.0.1 -P 3306
+```
+
+```sql
+mysql> create database recordings;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use recordings;
+Database changed
+
+-- create database using sql file
+mysql> source ./create-tables.sql
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+Query OK, 0 rows affected (0.01 sec)
+Query OK, 4 rows affected (0.00 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+-- verify changes
+mysql> select * from album;
+```
+
+### Import the database driver.
+
+Import our mysql driver [go-sql-driver/mysql](https://github.com/go-sql-driver/mysql)
+
+### Get a database handle and connect.
+
+Connect to our local mysql database that we just created using `go-sql-driver/mysql`.
+:::note
+Data source name (DSN) syntax:
+
+`[username[:password]@][protocol[(address)]]/dbname[?param1=value1&...&paramN=valueN]`
+
+To use it seperately, check [mysql.Config](https://pkg.go.dev/github.com/go-sql-driver/mysql#Config)
+:::
+
+Ping to verify that db is connected.
+
+### Query for multiple rows.
+
+Create a struct, with same structure as database created from sql earlier
+
+```sql
+-- used earlier
+mysql> source ./create-tables.sql
+```
+
+[db.Query](https://pkg.go.dev/database/sql#DB.Query): retrieve multiple rows
+
+[rows.Scan](https://pkg.go.dev/database/sql#Rows.Scan): copy rows to []struct
+
+### Query for a single row.
+
+[db.QueryRow](https://pkg.go.dev/database/sql#DB.QueryRow): retrieves single row
+
+### Add data.
+
+[db.Exec](https://pkg.go.dev/database/sql#DB.Exec): Execute `insert` query, where data is provided from variable of struct (matches database)
