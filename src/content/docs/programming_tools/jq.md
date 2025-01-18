@@ -1,5 +1,5 @@
 ---
-title: JQ
+title: jq
 description: JSON processor
 sidebar:
   order: 2
@@ -112,6 +112,11 @@ echo '{"foo": {"id": 42, "bar": "less interesting data"}}' | jq '.foo.bar'
 
 #### Array Index
 
+
+<details>
+<summary>Example</summary>
+<br/>
+
 `.[index]`
 
 ```bash
@@ -125,6 +130,8 @@ echo '[{"name":"JSON", "good":true}, {"name":"XML", "good":false}]' | jq '.[0]'
   "good": true
 }
 ```
+
+</details>
 
 #### Pipe
 
